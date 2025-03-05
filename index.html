@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Personal Website</title>
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
@@ -13,13 +13,13 @@
     <div class="window">
         <header>
             <div class="top-header">
-                <div class="logo-nick">
+                <div class="logo-nick" hx-get="/partial/htmx-home.html" hx-trigger="click" hx-target="#main-screen" hx-swap="outerHTML transition:true">
                     <span>Salokhiddinov</span>
                 </div>
                 <div class="mobile-pages">
-                    <a href="/">Home</a>
-                    <a href="works.html">Works</a>
-                    <a href="projects.html">Projects</a>
+                    <a hx-get="/partial/htmx-home.html" hx-trigger="click" hx-target="#main-screen" hx-swap="outerHTML transition:true">Home</a>
+                    <a hx-get="/partial/htmx-works.html" hx-trigger="click" hx-target="#main-screen" hx-swap="outerHTML transition:true">Works</a>
+                    <a hx-get="/partial/htmx-projects.html" hx-trigger="click" hx-target="#main-screen" hx-swap="outerHTML transition:true">Projects</a>
                     <a href="#">Wallpaper</a>
                     <a href="#">
                         <ion-icon name="logo-github"></ion-icon>
@@ -36,9 +36,9 @@
                 </div>
             </div>
             <div class="pages">
-                <a href="/">Home</a>
-                <a href="works.html">Works</a>
-                <a href="projects.html">Projects</a>
+                <a hx-get="/partial/htmx-home.html" hx-trigger="click" hx-target="#main-screen" hx-swap="outerHTML transition:true">Home</a>
+                <a hx-get="/partial/htmx-works.html" hx-trigger="click" hx-target="#main-screen" hx-swap="outerHTML transition:true">Works</a>
+                <a hx-get="/partial/htmx-projects.html" hx-trigger="click" hx-target="#main-screen" hx-swap="outerHTML transition:true">Projects</a>
                 <a href="#">Wallpaper</a>
                 <a href="#">
                     <ion-icon name="logo-github"></ion-icon>
@@ -46,74 +46,13 @@
                 </a>
             </div>
         </header>
-        <main>
-            <div class="greeting-text">
-                <span>Hello, I'm solo web developer from Uzbekistan!</span>
-            </div>
-            <div class="informations">
-                <div class="about">
-                    <h2>Qudratillo Salokhiddinov</h2>
-                    <p>(Programmer / Creator / Gamer)</p>
-                </div>
-                <div class="pfp">
-                    <img src="http://salokhiddinov.pythonanywhere.com/media/channels4_profile.jpg"
-                        alt="there was image">
-                </div>
-            </div>
-            <div class="about-work">
-                <h2>Work</h2>
-                <p>Salokhiddinov is a Web(backend) programmer from Andijan who enjoys creating
-                    digital services. He likes to play chess. Currently, he is focused on promoting his own digital
-                    products and shares content on his YouTube channel, "Qudratillo Salokhiddinov," which has over 1000
-                    subscribers.</p>
-                <div class="btn static-flex pt-1">
-                    <a href="works.html">
-                        Work Gallery <ion-icon name="chevron-forward-outline"></ion-icon>
-                    </a>
-                </div>
-            </div>
-            <div class="biography">
-                <h2>Biography</h2>
-                <div class="year-data">
-                    <h6>2006</h6>
-                    <p>Born in Andijan(Andijon), Uzbekistan.</p>
-                </div>
-                <div class="year-data">
-                    <h6>2020</h6>
-                    <p>Started learning programming by himself.</p>
-                </div>
-                <div class="year-data">
-                    <h6>2022</h6>
-                    <p>Completed "Back-end" course by IT-academy at the "Andijan Digital City" Technology park.</p>
-                </div>
-                <div class="year-data">
-                    <h6>Now</h6>
-                    <p>Student of Andijan State University, Faculty of IT information security</p>
-                </div>
-
-            </div>
-            <div class="links">
-                <h2>On the platforms</h2>
-                <div>
-                    <div class="link-item text-blue">
-                        <ion-icon name="logo-github"></ion-icon>
-                        <a href="#">@navideveloper</a>
-                    </div>
-                    <div class="link-item text-blue">
-                        <ion-icon name="logo-instagram"></ion-icon>
-                        <a href="#">@qudratillosalokhiddinov</a>
-                    </div>
-                    <div class="link-item text-blue">
-                        <ion-icon name="logo-youtube"></ion-icon>
-                        <a href="#">@qudratillosalokhiddinov</a>
-                    </div>
-                </div>
-            </div>
-            <div class="made_by">© 2025 Salokhiddinov Qudratillo</div>
+        <main id="main-screen" hx-get="/partial/htmx-home.html" hx-trigger="load" hx-target="#main-screen" hx-swap="outerHTML transition:true">
+           
         </main>
     </div>
 </body>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="https://unpkg.com/htmx.org@2.0.4"></script>
 <script src="./assets/scripts/main.js"></script>
 </html>

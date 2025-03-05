@@ -25,13 +25,14 @@
     --blue:rgb(53, 141, 235);
     --white:#fff;
     --fill-border:rgb(142,142,147);
-    --transparent-fill:rgba(255,255,255,0.4);
+    --transparent-fill:rgba(255, 255, 255, 0.08);
     --btn-fill:rgb(0,122,255);
     --btn-text:#fff;
 }
 body {
     padding: 0;
     margin: 0;
+    height: max-content;
     font-family: ios, sans-serif;
     font-size: 1rem;
     box-sizing: border-box;
@@ -133,15 +134,17 @@ main {
     margin-right: auto;
     gap: 1.9rem;
 }
-.greeting-text {
+.glass-box {
     margin-top: 2rem;
     font-size: 1.25rem;
-    text-align: center;
     background-color: var(--transparent-fill);
     border-radius: 10px;
     padding: 10px 16px;
     margin-left: 1rem;
     margin-right: 1rem;
+}
+.text-center {
+    text-align: center;
 }
 .informations {
     display: flex;
@@ -161,10 +164,10 @@ h2 {
     margin: 0;
 }
 .informations .pfp img {
-    width: 6.6rem;
-    height: 6.6rem;
+    /* width: 6.6rem; */
+    /* height: 6.6rem; */
     border-radius: 360%;
-    /* border:2px solid var(--mode-fill); */
+    border:2px solid var(--white);
 }
 .about-work {
     display: flex;
@@ -329,6 +332,7 @@ header .pages a:hover,.mobile-pages a:hover {
     justify-content: center;
     width: 15rem;
     gap: 0.4rem;
+    border-radius: 16px;
 }
 .works-list .work-item .work-title {
     font-weight: 600;
@@ -343,4 +347,32 @@ header .pages a:hover,.mobile-pages a:hover {
     color:var(--font-color);
     text-align: center;
     cursor: default;
+}
+.works-list .work-item .description {
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+    padding-bottom: 1rem;
+}
+.tab-2 {
+    padding:0.4rem 1rem;
+}
+.d-flex {
+    display: flex;
+    gap: 0.5rem;
+}
+.align-center {
+    align-items: center;
+}
+.m-0 {
+    margin: 0;    
+}
+.p-0 {
+    padding: 0;
+}
+.paragraph {
+    display: flex;
+    flex-direction: column;
+}
+h4 {
+    text-wrap: nowrap;
 }
