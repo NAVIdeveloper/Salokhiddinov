@@ -14,7 +14,8 @@
     --fill-border:rgb(142,142,147);
     --transparent-fill:rgba(42,42,42,0.1);
     --btn-fill:rgba(0,0,0,0.078);
-    --btn-text:rgb(0,122,255);
+    --btn-text:#0d827c;
+    --blur-back:#fdfdfb77;
 }
 .dark-mode {
     --fill-color:#1d1d21;
@@ -26,13 +27,14 @@
     --white:#fff;
     --fill-border:rgb(142,142,147);
     --transparent-fill:rgba(255, 255, 255, 0.08);
-    --btn-fill:rgb(0,122,255);
+    --btn-fill:#0d827c;
     --btn-text:#fff;
+    --blur-back:#03413879;
 }
 body {
     padding: 0;
     margin: 0;
-    height: max-content;
+    /* height: max-content; */
     font-family: ios, sans-serif;
     font-size: 1rem;
     box-sizing: border-box;
@@ -43,13 +45,15 @@ body {
 .mobile-only {
     display: none !important;
 }
-.window {
-    width: 60.5%;
+body {
+    width: 43rem;
     margin-left: auto;
     margin-right: auto;
+    display: flex;
+    flex-direction: column;
 }
 @media (max-width:768px) {
-    .window {
+    body {
         width: 100%;
     }
     .informations {
@@ -75,10 +79,9 @@ header .top-header {
     padding-right: 20px;
     justify-content: space-between;
     box-sizing: border-box;
-    backdrop-filter: blur(20px) saturate(180%);    
+    backdrop-filter: blur(33px);
     border-bottom: 1px solid var(--fill-border);
     z-index: 1000;
-    /* background-color: rgba(42,42,42,0.01); */
 }
 header {
     position: sticky;
@@ -126,13 +129,13 @@ header .buttons .menu ion-icon {
 
 main {
     background-color: var(--fill-color);
-    height: 100vh;
     display: flex;
     flex-direction: column;
     width: 87.5%;
     margin-left: auto;
     margin-right: auto;
     gap: 1.9rem;
+    flex-grow: 1; /* Bu elementni bo'sh joyni to'ldirishga imkon beradi */
 }
 .glass-box {
     margin-top: 2rem;
@@ -180,7 +183,7 @@ h2 {
 .btn {
     color: var(--btn-text);
     font-size: 1.2rem;
-    padding: 10px 15px;
+    padding: 0.5rem 1.5rem;
     text-align: center;
     margin: auto;
     background-color: var(--btn-fill);
@@ -247,10 +250,13 @@ a {
     margin:0.5rem;
     color:var(--fill-color);
 }
-header .top-header .mobile-pages {
+header .top-header .desktop-pages {
     display: flex;
     gap: 1rem;
     align-items: center;
+}
+header .top-header .desktop-pages ion-icon {
+    color: var(--font-color);
 }
 header .pages {
     display: flex;
@@ -259,40 +265,48 @@ header .pages {
     z-index: 999;
     align-items: center;
 }
-header .pages a, .mobile-pages a {
+header .pages a, .desktop-pages a {
     display: flex;
     align-items: center;
     gap: 0.4rem;
     color: var(--gray);
     z-index: 999;
 }
-
-header .pages a:hover,.mobile-pages a:hover {
+header .pages a ion-icon {
+    color: var(--font-color);
+}
+header .pages a:hover,.desktop-pages a:hover {
     text-decoration: underline;
 }
 @media (max-width:1000px) {
     header .pages {
         position: absolute;
         top: 100%;
-        left: 0;
-        width: 100%;
+        /* left: 0; */
+        right: 0;
+        box-shadow: 0 15px 10px rgba(0, 0, 0, 0.2);
+        background: var(--blur-back);
+        width: 250px;
         flex-direction: column;
         gap: 1.5rem;
         max-height: 0;
         overflow: hidden;
         opacity: 0;
-        transition: all 0.3s ease-in-out; /* Correct transition duration */
-        border-bottom: 1px solid var(--fill-border);
-        backdrop-filter: blur(20px) saturate(180%); /* Removed extra parenthesis */
+        transition: all 0.15s ease-in-out;
+        backdrop-filter: blur(14px);
         box-sizing: border-box;
+        background-blend-mode: lighten;
         z-index: 999;
+        border-radius: 12px;
+        margin-top: 10px;
+        margin-right: 20px;
     }
     header .pages.active {
         max-height: 900px;
         opacity: 1;
         padding: 1rem;
     }
-    header .top-header .mobile-pages {
+    header .top-header .desktop-pages {
         display: none;
     }
 
